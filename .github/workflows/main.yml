@@ -1,0 +1,33 @@
+name: Mern Stack CI
+
+on:
+  push:
+  # Only trigger if files in this path changed
+    branches: [sadaf]
+  pull_request:
+    branches: [sadaf]
+
+jobs:
+  build:
+    
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: |
+          npm i
+          cd frontend 
+          npm i
+          CI=false npm run build
+          cd ..
+          pm2 stop 4
+          pm2 start 4
+          pm2 save
+          sudo service nginx restart
+
+    
+  
