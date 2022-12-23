@@ -3,9 +3,9 @@ name: Mern Stack CI
 on:
   push:
   # Only trigger if files in this path changed
-    branches: [sadaf]
+    branches: [master]
   pull_request:
-    branches: [sadaf]
+    branches: [master]
 
 jobs:
   build:
