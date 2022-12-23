@@ -8,7 +8,7 @@ app.get('/',(req,res)=>{
 app.listen(5000,() => {
     console.log('====================================');
     console.log(`server is up on port 5000`);
-    console.log('====== server up on  ===========');
+    console.log('====== server up  ===========');
     
     
 })
